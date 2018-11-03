@@ -1,0 +1,220 @@
+D.cpp:122:15: error: reference to non-static member function must be called; did you mean to call it with no arguments?
+                cout << que.front << " " << que.front << " ";
+                        ~~~~^~~~~
+                                 ()
+/Library/Developer/CommandLineTools/usr/include/c++/v1/queue:277:21: note: possible target for call
+    reference       front()       {return c.front();}
+                    ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/queue:279:21: note: possible target for call
+    const_reference front() const {return c.front();}
+                    ^
+D.cpp:122:8: error: invalid operands to binary expression ('std::__1::ostream' (aka 'basic_ostream<char>') and 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>'))
+                cout << que.front << " " << que.front << " ";
+                ~~~~ ^  ~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:218:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'const void *' for 1st argument; take the address of the argument with &
+    basic_ostream& operator<<(const void* __p);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:194:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'std::__1::basic_ostream<char> &(*)(std::__1::basic_ostream<char> &)' for 1st argument
+    basic_ostream& operator<<(basic_ostream& (*__pf)(basic_ostream&))
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:198:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'basic_ios<std::__1::basic_ostream<char, std::__1::char_traits<char> >::char_type, std::__1::basic_ostream<char, std::__1::char_traits<char> >::traits_type> &(*)(basic_ios<std::__1::basic_ostream<char, std::__1::char_traits<char> >::char_type, std::__1::basic_ostream<char, std::__1::char_traits<char> >::traits_type> &)' (aka 'basic_ios<char, std::__1::char_traits<char> > &(*)(basic_ios<char, std::__1::char_traits<char> > &)') for 1st argument
+    basic_ostream& operator<<(basic_ios<char_type, traits_type>&
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:203:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'std::__1::ios_base &(*)(std::__1::ios_base &)' for 1st argument
+    basic_ostream& operator<<(ios_base& (*__pf)(ios_base&))
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:206:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'bool' for 1st argument
+    basic_ostream& operator<<(bool __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:207:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'short' for 1st argument
+    basic_ostream& operator<<(short __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:208:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'unsigned short' for 1st argument
+    basic_ostream& operator<<(unsigned short __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:209:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'int' for 1st argument
+    basic_ostream& operator<<(int __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:210:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'unsigned int' for 1st argument
+    basic_ostream& operator<<(unsigned int __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:211:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'long' for 1st argument
+    basic_ostream& operator<<(long __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:212:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'unsigned long' for 1st argument
+    basic_ostream& operator<<(unsigned long __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:213:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'long long' for 1st argument
+    basic_ostream& operator<<(long long __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:214:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'unsigned long long' for 1st argument
+    basic_ostream& operator<<(unsigned long long __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:215:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'float' for 1st argument
+    basic_ostream& operator<<(float __f);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:216:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'double' for 1st argument
+    basic_ostream& operator<<(double __f);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:217:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'long double' for 1st argument
+    basic_ostream& operator<<(long double __f);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:219:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'basic_streambuf<std::__1::basic_ostream<char, std::__1::char_traits<char> >::char_type, std::__1::basic_ostream<char, std::__1::char_traits<char> >::traits_type> *' (aka 'basic_streambuf<char, std::__1::char_traits<char> > *') for 1st argument
+    basic_ostream& operator<<(basic_streambuf<char_type, traits_type>* __sb);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:755:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'char' for 2nd argument
+operator<<(basic_ostream<_CharT, _Traits>& __os, char __cn)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:788:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'char' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, char __c)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:795:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'signed char' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, signed char __c)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:802:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'unsigned char' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, unsigned char __c)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:816:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'const char *' for 2nd argument
+operator<<(basic_ostream<_CharT, _Traits>& __os, const char* __strn)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:862:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'const char *' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, const char* __str)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:869:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'const signed char *' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, const signed char* __str)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:877:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'const unsigned char *' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, const unsigned char* __str)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:1061:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'const std::__1::error_code' for 2nd argument
+operator<<(basic_ostream<_CharT, _Traits>& __os, const error_code& __ec)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:748:1: note: candidate template ignored: deduced conflicting types for parameter '_CharT' ('char' vs. 'std::__1::pair<int, int>')
+operator<<(basic_ostream<_CharT, _Traits>& __os, _CharT __c)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:809:1: note: candidate template ignored: could not match 'const _CharT *' against 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>')
+operator<<(basic_ostream<_CharT, _Traits>& __os, const _CharT* __str)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:1044:1: note: candidate template ignored: could not match 'basic_string' against 'pair'
+operator<<(basic_ostream<_CharT, _Traits>& __os,
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:1052:1: note: candidate template ignored: could not match 'basic_string_view' against 'pair'
+operator<<(basic_ostream<_CharT, _Traits>& __os,
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:1069:1: note: candidate template ignored: could not match 'shared_ptr' against 'pair'
+operator<<(basic_ostream<_CharT, _Traits>& __os, shared_ptr<_Yp> const& __p)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:1076:1: note: candidate template ignored: could not match 'bitset' against 'pair'
+operator<<(basic_ostream<_CharT, _Traits>& __os, const bitset<_Size>& __x)
+^
+D.cpp:125:15: error: reference to non-static member function must be called; did you mean to call it with no arguments?
+                cout << que.front << " " << que.front << endl;
+                        ~~~~^~~~~
+                                 ()
+/Library/Developer/CommandLineTools/usr/include/c++/v1/queue:277:21: note: possible target for call
+    reference       front()       {return c.front();}
+                    ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/queue:279:21: note: possible target for call
+    const_reference front() const {return c.front();}
+                    ^
+D.cpp:125:8: error: invalid operands to binary expression ('std::__1::ostream' (aka 'basic_ostream<char>') and 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>'))
+                cout << que.front << " " << que.front << endl;
+                ~~~~ ^  ~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:218:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'const void *' for 1st argument; take the address of the argument with &
+    basic_ostream& operator<<(const void* __p);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:194:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'std::__1::basic_ostream<char> &(*)(std::__1::basic_ostream<char> &)' for 1st argument
+    basic_ostream& operator<<(basic_ostream& (*__pf)(basic_ostream&))
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:198:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'basic_ios<std::__1::basic_ostream<char, std::__1::char_traits<char> >::char_type, std::__1::basic_ostream<char, std::__1::char_traits<char> >::traits_type> &(*)(basic_ios<std::__1::basic_ostream<char, std::__1::char_traits<char> >::char_type, std::__1::basic_ostream<char, std::__1::char_traits<char> >::traits_type> &)' (aka 'basic_ios<char, std::__1::char_traits<char> > &(*)(basic_ios<char, std::__1::char_traits<char> > &)') for 1st argument
+    basic_ostream& operator<<(basic_ios<char_type, traits_type>&
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:203:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'std::__1::ios_base &(*)(std::__1::ios_base &)' for 1st argument
+    basic_ostream& operator<<(ios_base& (*__pf)(ios_base&))
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:206:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'bool' for 1st argument
+    basic_ostream& operator<<(bool __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:207:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'short' for 1st argument
+    basic_ostream& operator<<(short __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:208:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'unsigned short' for 1st argument
+    basic_ostream& operator<<(unsigned short __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:209:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'int' for 1st argument
+    basic_ostream& operator<<(int __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:210:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'unsigned int' for 1st argument
+    basic_ostream& operator<<(unsigned int __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:211:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'long' for 1st argument
+    basic_ostream& operator<<(long __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:212:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'unsigned long' for 1st argument
+    basic_ostream& operator<<(unsigned long __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:213:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'long long' for 1st argument
+    basic_ostream& operator<<(long long __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:214:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'unsigned long long' for 1st argument
+    basic_ostream& operator<<(unsigned long long __n);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:215:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'float' for 1st argument
+    basic_ostream& operator<<(float __f);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:216:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'double' for 1st argument
+    basic_ostream& operator<<(double __f);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:217:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'long double' for 1st argument
+    basic_ostream& operator<<(long double __f);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:219:20: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'basic_streambuf<std::__1::basic_ostream<char, std::__1::char_traits<char> >::char_type, std::__1::basic_ostream<char, std::__1::char_traits<char> >::traits_type> *' (aka 'basic_streambuf<char, std::__1::char_traits<char> > *') for 1st argument
+    basic_ostream& operator<<(basic_streambuf<char_type, traits_type>* __sb);
+                   ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:755:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'char' for 2nd argument
+operator<<(basic_ostream<_CharT, _Traits>& __os, char __cn)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:788:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'char' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, char __c)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:795:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'signed char' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, signed char __c)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:802:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'unsigned char' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, unsigned char __c)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:816:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'const char *' for 2nd argument
+operator<<(basic_ostream<_CharT, _Traits>& __os, const char* __strn)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:862:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'const char *' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, const char* __str)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:869:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'const signed char *' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, const signed char* __str)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:877:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'const unsigned char *' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, const unsigned char* __str)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:1061:1: note: candidate function not viable: no known conversion from 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>') to 'const std::__1::error_code' for 2nd argument
+operator<<(basic_ostream<_CharT, _Traits>& __os, const error_code& __ec)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:748:1: note: candidate template ignored: deduced conflicting types for parameter '_CharT' ('char' vs. 'std::__1::pair<int, int>')
+operator<<(basic_ostream<_CharT, _Traits>& __os, _CharT __c)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:809:1: note: candidate template ignored: could not match 'const _CharT *' against 'std::__1::__deque_base<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >::value_type' (aka 'std::__1::pair<int, int>')
+operator<<(basic_ostream<_CharT, _Traits>& __os, const _CharT* __str)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:1044:1: note: candidate template ignored: could not match 'basic_string' against 'pair'
+operator<<(basic_ostream<_CharT, _Traits>& __os,
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:1052:1: note: candidate template ignored: could not match 'basic_string_view' against 'pair'
+operator<<(basic_ostream<_CharT, _Traits>& __os,
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:1069:1: note: candidate template ignored: could not match 'shared_ptr' against 'pair'
+operator<<(basic_ostream<_CharT, _Traits>& __os, shared_ptr<_Yp> const& __p)
+^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:1076:1: note: candidate template ignored: could not match 'bitset' against 'pair'
+operator<<(basic_ostream<_CharT, _Traits>& __os, const bitset<_Size>& __x)
+^
+4 errors generated.
+make: *** [D] Error 1
