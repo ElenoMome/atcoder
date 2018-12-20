@@ -11,11 +11,10 @@
 #include <sstream>
 #include <iterator>
 #include <numeric>
-#include <map>
 
 using namespace std;
 
-#define DEBUG_ //!!提出時にコメントアウト!!
+//#define DEBUG_ //!!提出時にコメントアウト!!
 #ifdef DEBUG_
 	#define dump(x)  cerr << #x << " = " << (x) << endl;
 #else
@@ -50,5 +49,43 @@ int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int N,K;
+    cin >> N >> K;
+    vector<LL> a(N);
+    REP(i,N)
+    {
+        cin >> a[i];
+    }
+
+    LL sum[N*(N+1)/2];
+    int l = 0;
+    FOR(x,0,N)
+    {
+        FOR(y,x,N)
+        {
+            sum[l] = accumulate(a.begin() + x, a.begin() + y + 1, 0);
+            dump(sum[l])
+            l++;
+        }
+    }
+    LL res = 0;
+    for(int i = 40; i >= 0; i--)
+    {
+        LL add = 1LL << i;
+        dump(add)
+        int counter = 0;
+        REP(j,N*(N+1)/2)
+        {
+            dump(res + add)
+            dump(sum[j])
+            dump((res + add) & sum[j])
+            if(((res + add) & sum[j]) == res + add) counter++;
+        }
+        dump(counter)
+        if(counter >= K) res += add;
+    }
+
+    cout << res << endl;
+
 
 }

@@ -1,156 +1,127 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <stack>
+#include <queue>
+#include <cmath>
+#include <tuple>
+#include <cstdio>
+#include <bitset>
+#include <sstream>
+#include <iterator>
+#include <numeric>
+#include <map>
 
 using namespace std;
 
+//#define DEBUG_ //!!提出時にコメントアウト!!
+#ifdef DEBUG_
+	#define dump(x)  cerr << #x << " = " << (x) << endl;
+#else
+	#define dump(x)  ; //何もしない文
+#endif
+
+#define FOR(i,a,b) for(int i=(a);i<(b);++i)
+#define REP(i,n)  FOR(i,0,n)
+#define SZ(x) ((int)(x).size()) //unsignedのサイズをint型に変換
+
+typedef vector<int> VI;
+typedef vector<VI> VVI;
+typedef vector<string> VS;
+typedef pair<int, int> PII;
+typedef long long LL; 
+
+template <typename T>
+std::string printVector(const std::vector<T> &data)
+{
+    std::stringstream ss;
+    std::ostream_iterator<T> out_it(ss, ", ");
+    ss << "[";
+    std::copy(data.begin(), data.end() - 1, out_it);
+    ss << data.back() << "]";
+    return ss.str();
+}
+
+const int MOD = 1e9+7;
+const int maxn = (1e5) + 10;
+
+//ここから書き始める
 int main(int argc, char const *argv[])
 {
-	//入力処理
-	vector<int> count1, count2, vec1, vec2;
-	int n;
+    cin.tie(0);
+    ios::sync_with_stdio(false);	
+    int n;
+    cin >> n;
+    int odd[maxn],even[maxn];
 
-	cin >> n;
+    REP(i,maxn)
+    {
+        odd[i] = 0;
+        even[i] = 0;
+    }
 
-	int v[n];
+    FOR(i,1,n+1)
+    {
+        int temp;
+        cin >> temp;
+        if(i%2 != 0) odd[temp]++;
+        else even[temp]++;
+    }
+    int maxcount1_odd = 0; int maxcount2_odd = 0;
+    int maxcount1_even = 0; int maxcount2_even = 0;
+    int num1_odd, num2_odd;
+    int num1_even, num2_even;
 
-	for(int i = 0; i < n; i++)
-	{
-		cin >> v[i];
-	}
-	//ここまで
+    //first
+    REP(i,maxn)
+    {
+        //odd
+        if(odd[i] > maxcount1_odd)
+        {
+            maxcount1_odd = odd[i];
+            num1_odd = i;
+        }
+        //even
 
+        if(even[i] > maxcount1_even)
+        {
+            maxcount1_even = even[i];
+            num1_even = i;
+        }
+    }
 
-	//本処理
-	for(int i = 0; i < n/2; i++)
-	{
+    odd[num1_odd] = 0;
+    even[num1_even] = 0;
+    //second
 
-		if(i == 0)
-		{
-			vec1.push_back(v[i*2]);
-			count1.push_back(1);
-			vec2.push_back(v[i*2 + 1]);
-			count2.push_back(1);
-			continue;
-		}
-		for(auto j = 0; j < vec1.size(); j++)
-		{
-			if(vec1[j] == v[i*2])
-			{
-				count1[j] += 1;
-				break;
-			}
+    REP(i,maxn)
+    {
+        //odd
+        if(odd[i] > maxcount2_odd)
+        {
+            maxcount2_odd = odd[i];
+            num2_odd = i;
+        }
+        //even
 
-			if(j == vec1.size() - 1)
-			{
-				vec1.push_back(v[i*2]);
-				count1.push_back(1);
-				break;
-			}
-		}
+        if(even[i] > maxcount2_even)
+        {
+            maxcount2_even = even[i];
+            num2_even = i;
+        }
+    }
+    dump(num1_odd)
+    dump(num2_odd)
+    dump(num1_even)
+    dump(num2_even)
 
-		for(auto j = 0; j < vec2.size(); j++)
-		{
-			if(vec2[j] == v[i*2 + 1])
-			{
-				count2[j] += 1;
-				//デバッグ用
-				cout << "count2:";
-				for(auto i = 0; i < count2.size(); i++)
-					{
-						cout << count2[i] << ',';
-					}
-
-				cout << endl;
-				//デバッグ用
-
-				break;
-			}
-
-			if(j == vec2.size() - 1)
-			{
-				vec2.push_back(v[i*2 + 1]);
-				count2.push_back(1);
-
-				//デバッグ用
-
-				cout << "count2:";
-				for(auto i = 0; i < count2.size(); i++)
-					{
-						cout << count2[i] << ',';
-					}
-
-				cout << endl;
-				//デバッグ用
-				break;
-
-			}
-		}
-
-	}
-
-	//デバッグ用コード
-	for(auto i = 0; i < vec1.size(); i++)
-		{
-			cout << vec1[i] << ',';
-		}
-	cout << endl;
-
-	for(auto i = 0; i < vec2.size(); i++)
-		{
-			cout << vec2[i] << ',';
-		}
-
-	cout << endl;
-	for(auto i = 0; i < count1.size(); i++)
-		{
-			cout << count1[i] << ',';
-		}
-
-	cout << endl;
-	for(auto i = 0; i < count2.size(); i++)
-		{
-			cout << count2[i] << ',';
-		}
-
-	cout << endl;
-
-
-	vector<int>::iterator iter1_1 = max_element(count1.begin(), count1.end());
-	vector<int>::iterator iter2_1 = max_element(count2.begin(), count2.end());
-
-    size_t index1_1 = distance(count1.begin(), iter1_1);
-    size_t index2_1 = distance(count2.begin(), iter2_1);
-
-	int obj1_1 = vec1[index1_1];
-	int obj2_1 = vec2[index2_1];
-
-    count1[index1_1] = 0;
-    count2[index2_1] = 0;
-    int maxkouho1_1 = *iter1_1;
-    cout << "maxkouho1_1:" << maxkouho1_1 <<endl;
-    int maxkouho2_1 = *iter2_1;
-
-	vector<int>::iterator iter1_2 = max_element(count1.begin(), count1.end());
-	vector<int>::iterator iter2_2 = max_element(count2.begin(), count2.end());
-
-    size_t index1_2 = distance(count1.begin(), iter1_1);
-    size_t index2_2 = distance(count2.begin(), iter2_1);
-
-    cout << "maxkouho1_1:" << maxkouho1_1 <<endl;
-
-	int obj1_2 = vec1[index1_2];
-	int obj2_2 = vec2[index2_2];
-
-	if(obj1_1 != obj2_1)
-	{
-		cout << maxkouho1_1 + maxkouho2_1;
-	}
-	else{
-		cout << ((maxkouho1_1 + *iter2_2) > (*iter1_2 + maxkouho2_1) ? (maxkouho1_1 + *iter2_2) : (*iter1_2 + maxkouho2_1)) << endl;
-	}
-
-
-
-	return 0;
+    if(num1_odd != num1_even)
+    {
+        cout << n - maxcount1_odd - maxcount1_even << endl;
+    }
+    else
+    {
+        cout << n - max(maxcount1_odd + maxcount2_even, maxcount1_even + maxcount2_odd) << endl;
+    }
 }

@@ -3,8 +3,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-
-using namespace std;
+#include <iterator>
 
 template <typename T>
 std::string printVector(const std::vector<T> &data)
@@ -17,13 +16,14 @@ std::string printVector(const std::vector<T> &data)
     return ss.str();
 }
 
-int main(int argc, char const *argv[])
-{
-    vector<int> myvector;
+
+int main() {
+    // vector の初期化 10-90 の代入
+    std::vector<int> myvector;
     for (int i = 1; i<10; ++i) {
         myvector.push_back(i * 10);
     }
 
-    cout << "myVector = " << printVector(myvector) << endl;
+    std::cout << "myVector = " << printVector(myvector) << std::endl;
     return 0;
 }

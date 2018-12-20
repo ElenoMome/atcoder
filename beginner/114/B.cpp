@@ -11,7 +11,6 @@
 #include <sstream>
 #include <iterator>
 #include <numeric>
-#include <map>
 
 using namespace std;
 
@@ -50,5 +49,20 @@ int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    string S;
+    cin >> S;
+
+    int min = MOD;
+
+    REP(i,int(S.length()) - 2)
+    {
+        int hyaku = S[i] - '0';
+        int juu = S[i+1] - '0';
+        int iti = S[i+2] - '0';
+        int suuji = hyaku * 100 + juu * 10 + iti;
+        int sa = abs(suuji - 753);
+        if(sa < min) min = sa;
+    }
+    cout << min << endl;
 
 }

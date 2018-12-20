@@ -11,11 +11,10 @@
 #include <sstream>
 #include <iterator>
 #include <numeric>
-#include <map>
 
 using namespace std;
 
-#define DEBUG_ //!!提出時にコメントアウト!!
+//#define DEBUG_ //!!提出時にコメントアウト!!
 #ifdef DEBUG_
 	#define dump(x)  cerr << #x << " = " << (x) << endl;
 #else
@@ -44,11 +43,41 @@ std::string printVector(const std::vector<T> &data)
 }
 
 const int MOD = 1e9+7;
+const int INF = 1e9+7;
 
 //ここから書き始める
 int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int N;
+    cin >> N;
+    vector<LL> a(N);
+    int min = INF;
+    REP(i,N)
+    {
+        LL tmp;
+        cin >> tmp;
+        a[i] = tmp - i - 1;
+        dump(a[i])
+        if(a[i] < min) min = a[i];
+    }
+    if(min < 0)
+    {
+        REP(i,N)
+        {
+            a[i] -= min;
+            dump(a[i])
+        }
+    }
+    sort(a.begin(), a.end());
+    int ave;
+    ave = a[N/2];
+    LL res = 0;
+    REP(i,N)
+    {
+        res += abs(a[i] - ave);
+    }
+    cout << res << endl;
 
 }

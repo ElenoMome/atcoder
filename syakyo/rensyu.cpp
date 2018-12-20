@@ -189,4 +189,38 @@ int main()
     }
 }
 
+//入力
+vector<int> G[MAX_V]; //グラフ
+int V; //頂点数
 
+
+int color[MAX_V]; //頂点iの色 1 or -1
+bool dfs(int v, int c)
+{
+    color[v] = c; //頂点vをcで塗る
+    FOR(i,0,G[v].size())
+    {
+
+    }
+}
+
+int main()
+{
+    int N,M;
+    cin >> N >> M;
+    vector<pair<int,int>> cities[100001];
+    REP(i,M)
+    {
+        int p,y;
+        cin >> p >> y;
+        cities[p].push_back({y,i})
+    }
+
+    PII ans[100001];
+    FOR(i,1, N+1)
+    {
+        sort(cities[i].begin(), cities[i].end());
+    }
+
+}
+\

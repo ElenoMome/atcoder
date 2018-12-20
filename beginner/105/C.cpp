@@ -10,8 +10,6 @@
 #include <bitset>
 #include <sstream>
 #include <iterator>
-#include <numeric>
-#include <map>
 
 using namespace std;
 
@@ -50,5 +48,44 @@ int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    LL N;
+    cin >> N;
 
+    vector<int> ans;
+    int acu=0;
+    int count = 1;
+    int res;
+
+    while(1)
+    {
+        int amari = N % LL(pow(2,count));
+        dump(count)
+        dump(pow(2,count))
+        dump(amari)
+        if(amari >= 0)
+        {
+            if(amari == (acu >= 0 ? acu : acu + LL(pow(2,count)))) res = 0;
+            else res = 1;
+        }
+        else
+        {
+            if(amari+LL(pow(2,count)) == (acu >= 0 ? acu : acu + LL(pow(2,count)))) res = 0;
+            else res = 1;
+        }
+        dump(res)
+        acu += res * LL(pow(-2,count-1));
+        dump(acu)
+        ans.push_back(res);
+        count++;
+
+        if(acu == N) break;
+        //if(count == 30) break;
+
+    }
+
+    for(auto i = 0; i < ans.size(); i++)
+    {
+        cout << ans[ans.size()-i-1];
+    }
+    cout << endl;
 }

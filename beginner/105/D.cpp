@@ -10,7 +10,6 @@
 #include <bitset>
 #include <sstream>
 #include <iterator>
-#include <numeric>
 #include <map>
 
 using namespace std;
@@ -50,5 +49,27 @@ int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int N,M;
+    cin >> N >> M;
+    vector<LL> A(N);
+    REP(i,N)
+    {
+        cin >> A[i];
+    }
+    map<int,int> mp;
+    mp[0] = 1;
+    vector<LL> C(N+1);
+    C[0] = 0;
+    for(int i = 0; i < N; i++)
+    {
+        C[i+1] = (C[i] + A[i]) % M;
+        mp[C[i+1]]++;
+    }
+    LL res = 0;
+    for(auto m : mp)
+    {
+        res += (m.second - 1)* 1LL * m.second / 2;
+    }
+    cout << res << endl;
 
 }

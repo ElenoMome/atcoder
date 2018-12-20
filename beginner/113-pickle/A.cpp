@@ -6,12 +6,6 @@
 #include <queue>
 #include <cmath>
 #include <tuple>
-#include <cstdio>
-#include <bitset>
-#include <sstream>
-#include <iterator>
-#include <numeric>
-#include <map>
 
 using namespace std;
 
@@ -32,23 +26,15 @@ typedef vector<string> VS;
 typedef pair<int, int> PII;
 typedef long long LL; 
 
-template <typename T>
-std::string printVector(const std::vector<T> &data)
-{
-    std::stringstream ss;
-    std::ostream_iterator<T> out_it(ss, ", ");
-    ss << "[";
-    std::copy(data.begin(), data.end() - 1, out_it);
-    ss << data.back() << "]";
-    return ss.str();
-}
-
-const int MOD = 1e9+7;
+ 
 
 //ここから書き始める
 int main(int argc, char const *argv[])
 {
-    cin.tie(0);
-    ios::sync_with_stdio(false);	
+	int X,Y;
+	cin >> X >> Y;
+
+	cout << X + Y/2 << endl;
+
 
 }

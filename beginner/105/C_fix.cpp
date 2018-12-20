@@ -10,8 +10,6 @@
 #include <bitset>
 #include <sstream>
 #include <iterator>
-#include <numeric>
-#include <map>
 
 using namespace std;
 
@@ -44,11 +42,33 @@ std::string printVector(const std::vector<T> &data)
 }
 
 const int MOD = 1e9+7;
+//const static inline void rec(int data) {
+ // if(data == 0) return;
+  //int next = abs(data) % 2;
+  //if(data < 0) next = (2 - next) % 2;
+  //rec((data - next) / -2);
+  //cout << next;
+//}
+
+const static inline void rec(int data)
+{
+    if(data == 0) return;
+    int next = abs(data) % 2; //正の整数の場合
+    if(data < 0) next = (2 - next) % 2;
+    dump(data)
+    dump(next)
+    rec((data - next) / -2);
+    cout << next;
+}
 
 //ここから書き始める
 int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int N;
+    cin >> N;
+    rec(N);
+    cout << endl;
 
 }

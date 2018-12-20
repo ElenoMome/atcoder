@@ -11,7 +11,6 @@
 #include <sstream>
 #include <iterator>
 #include <numeric>
-#include <map>
 
 using namespace std;
 
@@ -50,5 +49,11 @@ int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
-
+    VI data(10);
+    REP(i,10)
+    {
+        data[i] = i;
+    }
+    cout << printVector(data) << endl;
+    cout << accumulate(data.begin(), data.end(), 0) << endl;
 }

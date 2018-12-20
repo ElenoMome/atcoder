@@ -10,8 +10,6 @@
 #include <bitset>
 #include <sstream>
 #include <iterator>
-#include <numeric>
-#include <map>
 
 using namespace std;
 
@@ -50,5 +48,19 @@ int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int N;
+    cin >> N;
+
+    int maxl = N / 7;
+    bool ok = 0;
+    REP(i,maxl+1)
+    {
+        int remain = N - 7 * i;
+        if(remain % 4 == 0) ok = 1;
+
+    }
+    if(ok) cout << "Yes" << endl;
+    else cout << "No" << endl;
+
 
 }

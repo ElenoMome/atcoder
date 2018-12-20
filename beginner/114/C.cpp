@@ -11,11 +11,10 @@
 #include <sstream>
 #include <iterator>
 #include <numeric>
-#include <map>
 
 using namespace std;
 
-#define DEBUG_ //!!提出時にコメントアウト!!
+//#define DEBUG_ //!!提出時にコメントアウト!!
 #ifdef DEBUG_
 	#define dump(x)  cerr << #x << " = " << (x) << endl;
 #else
@@ -50,5 +49,32 @@ int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int N;
+    cin >> N;
+    int max_digit = to_string(N).size(); //桁数
+    int arr[3] = {3,5,7};
+    LL seed = LL(pow(3,max_digit));
+    int ans = 0;
+
+    FOR(digit,1,max_digit+1)
+    {
+        FOR(i,0,LL(pow(3,digit)))
+        {
+            int num = i;
+            int sum = 0;
+            bitset<3> check;
+            REP(j,digit)
+            {
+                sum = sum * 10 + arr[num % 3];
+                check[num % 3] = true;
+                num /= 3;
+            }
+            if(check.all() && sum <= N) {
+                dump(sum)
+                ans++;
+            }
+        }
+    }
+    cout << ans << endl;
 
 }

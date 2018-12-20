@@ -10,8 +10,6 @@
 #include <bitset>
 #include <sstream>
 #include <iterator>
-#include <numeric>
-#include <map>
 
 using namespace std;
 
@@ -50,5 +48,9 @@ int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int N,K;
+    cin >> N >> K;
+
+    cout << (N%K == 0? 0 : 1) << endl;
 
 }

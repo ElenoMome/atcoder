@@ -50,5 +50,29 @@ int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int n;
+    cin >> n;
+
+    map<int,int> odd_dict;
+    map<int,int> even_dict;
+    FOR(i,1,n+1)
+    {
+        int temp;
+        cin >> temp;
+        if(i%2 == 1)
+        {
+            odd_dict[temp]++;
+        }
+        else
+        {
+            even_dict[temp]++;
+        }
+    }
+
+    printf("odd_dict");
+    for(auto x : odd_dict)
+    {
+        cout << x.first << "," << x.second << endl;
+    }
 
 }

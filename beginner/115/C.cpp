@@ -11,7 +11,6 @@
 #include <sstream>
 #include <iterator>
 #include <numeric>
-#include <map>
 
 using namespace std;
 
@@ -50,5 +49,19 @@ int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int N,K;
+    cin >> N >> K;
+    VI h(N);
+    REP(i,N)
+    {
+        cin >> h[i];
+    }
+    sort(h.begin(), h.end());
+    int min = MOD;
 
+    REP(i,N-K+1)
+    {
+        if(h[i+K-1] - h[i] < min) min = h[i+K-1] - h[i];
+    }
+    cout << min << endl;
 }

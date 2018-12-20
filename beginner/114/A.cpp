@@ -11,7 +11,6 @@
 #include <sstream>
 #include <iterator>
 #include <numeric>
-#include <map>
 
 using namespace std;
 
@@ -50,5 +49,10 @@ int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int X;
+    cin >> X;
+
+    if(X == 7 || X == 5 || X == 3) cout << "YES" << endl;
+    else cout << "NO" << endl;
 
 }
