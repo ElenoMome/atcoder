@@ -50,10 +50,73 @@ const int MOD = 1e9+7;
 const LL LINF = 1001002003004005006ll;
 const int INF = 1001001001;
 
+int dx[4] = {1,0,-1,0};
+int dy[4] = {0,1,0,-1};
+
+
+//void dfs(int x, int y)
+//{
+    //int nx,ny;
+    //O[x][y] = 0; //今いるところをゼロに
+    //REP(i,4)
+    //{
+        //nx = x + dx[i];
+        //ny = y + dy[i];
+        //if(0 <= nx && nx <= H && 0 <= ny && ny <= W)
+        //{
+            //dfs(nx, ny);
+        //}
+    //}
+//}
+
 //ここから書き始める
 int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int H,W;
+    cin >> H >> W;
+
+    int O[H][W];
+
+    REP(i,H)
+    {
+        string s;
+        cin >> s;
+        REP(j,W)
+        {
+            if(s[j] == '.') O[i][j] = 0;
+            else O[i][j] =1;
+        }
+    }
+    bool ok = 1;
+
+    REP(i,H)
+    {
+        REP(j,W)
+        {
+            if(O[i][j] == 1)
+            {
+                bool check = 0;
+                REP(k,4)
+                {
+                    int nx = i + dx[k];
+                    int ny = j + dy[k];
+                    if(0 <= nx && nx < H && 0 <= ny && ny < W)
+                    {
+                        if(O[nx][ny] == 1) check = 1;
+                    }
+                }
+                if(check == 0) ok = 0;
+            }
+        }
+    }
+
+    if(ok) cout << "Yes" << endl;
+    else cout << "No" << endl;
+
+
+
+
 
 }

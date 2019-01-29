@@ -50,10 +50,58 @@ const int MOD = 1e9+7;
 const LL LINF = 1001002003004005006ll;
 const int INF = 1001001001;
 
+struct UnionFind{
+    vector<int> par,rank;
+    UnionFind(int N){
+        par.assign(N,0);
+        rank.assign(N,0);
+        REP(i,N) par[i]=i;
+    }
+    int find(int x){
+        if(par[x]==x) return x;
+        return par[x]=find(par[x]);
+    }
+    bool same(int x,int y){
+        return find(x)==find(y);
+    }
+    void unite(int x,int y){
+        x=find(x),y=find(y);
+        if(x==y) return;
+        if(rank[x]<rank[y]) swap(x,y);
+ 
+        //x becomes root
+        par[y]=x;
+        if(rank[x]==rank[y]) rank[x]++;
+    }
+};
+
+
 //ここから書き始める
 int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int N,M;
+    cin >> N >> M;
+    VI p(N);
+    REP(i,N)
+    {
+        cin >> p[i];
+        p[i]--;
+    }
+    UnionFind UF(N);
+    REP(i,M)
+    {
+        int x,y;
+        cin >> x >> y;
+        x--; y--;
+        UF.unite(x,y);
+    }
+    int ans = 0;
+    REP(i,N)
+    {
+        if(UF.find(i) == UF.find(p[i])) ans++;
+    }
+    cout << ans << endl;
 
 }

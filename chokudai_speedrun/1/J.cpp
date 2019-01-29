@@ -12,7 +12,6 @@
 #include <iterator>
 #include <numeric>
 #include <map>
-#include <cstring>
 
 using namespace std;
 
@@ -26,14 +25,12 @@ using namespace std;
 #define FOR(i,a,b) for(int i=(a);i<(b);++i)
 #define REP(i,n)  FOR(i,0,n)
 #define SZ(x) ((int)(x).size()) //unsignedのサイズをint型に変換
-#define pb push_back
 
-typedef long long LL; 
 typedef vector<int> VI;
 typedef vector<VI> VVI;
 typedef vector<string> VS;
 typedef pair<int, int> PII;
-typedef pair<LL, LL> PLL;
+typedef long long LL; 
 
 template <typename T>
 std::string printVector(const std::vector<T> &data)
@@ -45,15 +42,51 @@ std::string printVector(const std::vector<T> &data)
     ss << data.back() << "]";
     return ss.str();
 }
+template<typename T>
+struct BIT {
+    std::vector<T> dat;
+ 
+    BIT(int n) : dat(n + 1) {}
+ 
+    void add(int k, T v) {
+        k++;
+        while (k < dat.size()) {
+            dat[k] += v;
+            k += k & -k;
+        }
+    }
+ 
+    T sum(int k) {
+        k++;
+        T ret = 0;
+        while (k > 0) {
+            ret += dat[k];
+            k &= k - 1;
+        }
+        return ret;
+    }
+};
 
 const int MOD = 1e9+7;
-const LL LINF = 1001002003004005006ll;
-const int INF = 1001001001;
 
 //ここから書き始める
 int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int n;
+    cin >> n;
+
+    BIT<int> bit(101010);
+    LL ans = 0;
+    REP(i,n)
+    {
+        int t;
+        cin >> t;
+        ans += i - bit.sum(t);
+        bit.add(t,1);
+    }
+
+    cout << ans << endl;
 
 }

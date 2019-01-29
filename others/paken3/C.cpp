@@ -12,7 +12,6 @@
 #include <iterator>
 #include <numeric>
 #include <map>
-#include <cstring>
 
 using namespace std;
 
@@ -26,14 +25,12 @@ using namespace std;
 #define FOR(i,a,b) for(int i=(a);i<(b);++i)
 #define REP(i,n)  FOR(i,0,n)
 #define SZ(x) ((int)(x).size()) //unsignedのサイズをint型に変換
-#define pb push_back
 
-typedef long long LL; 
 typedef vector<int> VI;
 typedef vector<VI> VVI;
 typedef vector<string> VS;
 typedef pair<int, int> PII;
-typedef pair<LL, LL> PLL;
+typedef long long LL; 
 
 template <typename T>
 std::string printVector(const std::vector<T> &data)
@@ -47,13 +44,37 @@ std::string printVector(const std::vector<T> &data)
 }
 
 const int MOD = 1e9+7;
-const LL LINF = 1001002003004005006ll;
-const int INF = 1001001001;
 
 //ここから書き始める
 int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int B;
+    cin >> B;
+
+    int counter = 0;
+    int kouho = B;
+    while(1)
+    {
+        if(kouho % 3 == 0)
+        {
+            kouho = kouho * 2 / 3;
+            counter++;
+        }
+        else
+        {
+            if((kouho * 2 / 3 != (kouho * 2 + 2) / 3) && (kouho * 2 + 2) % 3 != 0)
+            {
+                kouho = (kouho * 2 + 2) / 3;
+                counter++;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+    cout << counter << endl;
 
 }

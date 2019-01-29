@@ -26,14 +26,12 @@ using namespace std;
 #define FOR(i,a,b) for(int i=(a);i<(b);++i)
 #define REP(i,n)  FOR(i,0,n)
 #define SZ(x) ((int)(x).size()) //unsignedのサイズをint型に変換
-#define pb push_back
 
-typedef long long LL; 
 typedef vector<int> VI;
 typedef vector<VI> VVI;
 typedef vector<string> VS;
 typedef pair<int, int> PII;
-typedef pair<LL, LL> PLL;
+typedef long long LL; 
 
 template <typename T>
 std::string printVector(const std::vector<T> &data)
@@ -50,10 +48,35 @@ const int MOD = 1e9+7;
 const LL LINF = 1001002003004005006ll;
 const int INF = 1001001001;
 
+// ax + by = gcd(a, b) となるような (x, y) を求める
+long long extGCD(long long a, long long b, long long &x, long long &y) {
+    dump(a)
+    dump(b)
+    if (b == 0) {
+        x = 1;
+        y = 0;
+        return a;
+    }
+    long long d = extGCD(b, a%b, y, x); // 再帰的に解く
+    dump(x)
+    dump(y)
+    dump(a)
+    dump(b)
+    y -= a / b * x;
+
+    return d;
+}
+
 //ここから書き始める
 int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    LL x,y;
+    dump(x)
+    dump(y)
+    extGCD(13,5,x,y);
+    dump(x)
+    dump(y)
 
 }

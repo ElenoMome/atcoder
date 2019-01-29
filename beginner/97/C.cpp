@@ -55,5 +55,21 @@ int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    string s;
+    int K;
+    cin >> s >> K;
+    int N = s.size();
+    vector<string> vec;
+    FOR(len,1,K+1)
+    {
+        REP(i,N+1-len)
+        {
+            vec.pb(s.substr(i,len));
+        }
+    }
+    sort(vec.begin(), vec.end());
+    vec.erase(unique(vec.begin(),vec.end()), vec.end());
+    cout << vec[K-1] << endl;
+
 
 }

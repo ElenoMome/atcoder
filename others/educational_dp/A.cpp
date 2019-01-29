@@ -26,14 +26,12 @@ using namespace std;
 #define FOR(i,a,b) for(int i=(a);i<(b);++i)
 #define REP(i,n)  FOR(i,0,n)
 #define SZ(x) ((int)(x).size()) //unsignedのサイズをint型に変換
-#define pb push_back
 
-typedef long long LL; 
 typedef vector<int> VI;
 typedef vector<VI> VVI;
 typedef vector<string> VS;
 typedef pair<int, int> PII;
-typedef pair<LL, LL> PLL;
+typedef long long LL; 
 
 template <typename T>
 std::string printVector(const std::vector<T> &data)
@@ -47,13 +45,38 @@ std::string printVector(const std::vector<T> &data)
 }
 
 const int MOD = 1e9+7;
-const LL LINF = 1001002003004005006ll;
-const int INF = 1001001001;
+const int MAX_N = 1e5+10;
+int dp[MAX_N];
 
 //ここから書き始める
 int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int N;
+    cin >> N;
+    VI h(N);
+    REP(i,N)
+    {
+        cin >> h[i];
+    }
+
+    memset(dp, 0, sizeof(dp));
+
+    for(int i=N-1; i>0; i--)
+    {
+        if(i==N-1)
+        {
+            dp[i] = dp[i+1]+abs(h[i-1] - h[i]);
+        }
+        else
+        {
+            dp[i] = min(dp[i+1]+abs(h[i-1] - h[i]), dp[i+2]+abs(h[i-1] - h[i+1]));
+        }
+    }
+
+    cout << dp[1] << endl;
+
+
 
 }

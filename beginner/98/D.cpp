@@ -26,14 +26,12 @@ using namespace std;
 #define FOR(i,a,b) for(int i=(a);i<(b);++i)
 #define REP(i,n)  FOR(i,0,n)
 #define SZ(x) ((int)(x).size()) //unsignedのサイズをint型に変換
-#define pb push_back
 
-typedef long long LL; 
 typedef vector<int> VI;
 typedef vector<VI> VVI;
 typedef vector<string> VS;
 typedef pair<int, int> PII;
-typedef pair<LL, LL> PLL;
+typedef long long LL; 
 
 template <typename T>
 std::string printVector(const std::vector<T> &data)
@@ -55,5 +53,32 @@ int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int N;
+    cin >> N;
+    VI A(N);
+    REP(i,N)
+    {
+        cin >> A[i];
+    }
+
+    int t = 0;
+    LL ans = 0;
+    LL xorsum = 0;
+    LL norsum = 0;
+
+    REP(s,N)
+    {
+        xorsum -= A[s-1];
+        norsum = xorsum;
+        while(t < N && ((xorsum ^ A[t])==(norsum + A[t])))
+        {
+            norsum += A[t];
+            xorsum = norsum;
+            t++;
+        }
+        ans += t-s;
+    }
+
+    cout << ans << endl;
 
 }

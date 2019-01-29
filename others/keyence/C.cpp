@@ -26,14 +26,12 @@ using namespace std;
 #define FOR(i,a,b) for(int i=(a);i<(b);++i)
 #define REP(i,n)  FOR(i,0,n)
 #define SZ(x) ((int)(x).size()) //unsignedのサイズをint型に変換
-#define pb push_back
 
-typedef long long LL; 
 typedef vector<int> VI;
 typedef vector<VI> VVI;
 typedef vector<string> VS;
 typedef pair<int, int> PII;
-typedef pair<LL, LL> PLL;
+typedef long long LL; 
 
 template <typename T>
 std::string printVector(const std::vector<T> &data)
@@ -55,5 +53,63 @@ int main(int argc, char const *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);	
+    int N;
+    cin >> N;
+    vector<LL> A(N), B(N);
+    vector<LL> diff(N);
+
+    LL Asum = 0;
+    LL Bsum = 0; 
+    REP(i,N)
+    {
+        cin >> A[i];
+        Asum += A[i];
+    }
+    REP(i,N)
+    {
+        cin >> B[i];
+        Bsum += B[i];
+        diff[i] = A[i] - B[i];
+    }
+
+    if(Asum < Bsum) 
+    {
+        cout << -1 << endl;
+        return 0;
+    }
+
+    sort(diff.begin(), diff.end());
+
+    LL debtcount = 0;
+    int ncount = 0;
+    int pcount = 0; 
+    for(auto u : diff)
+    {
+        if(u < 0)
+        {
+            debtcount += u;
+            ncount++;
+        }
+        else break;
+    }
+    if(debtcount < 0)
+    {
+
+        for(int index = N - 1; index >= 0; index--)
+        {
+            debtcount += diff[index];
+            pcount++;
+            if(debtcount >= 0)
+            {
+                break;
+            }
+        }
+    }
+
+    dump(debtcount)
+
+    cout << ncount + pcount << endl;
+
+
 
 }

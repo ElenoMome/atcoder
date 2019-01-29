@@ -26,14 +26,12 @@ using namespace std;
 #define FOR(i,a,b) for(int i=(a);i<(b);++i)
 #define REP(i,n)  FOR(i,0,n)
 #define SZ(x) ((int)(x).size()) //unsignedのサイズをint型に変換
-#define pb push_back
 
-typedef long long LL; 
 typedef vector<int> VI;
 typedef vector<VI> VVI;
 typedef vector<string> VS;
 typedef pair<int, int> PII;
-typedef pair<LL, LL> PLL;
+typedef long long LL; 
 
 template <typename T>
 std::string printVector(const std::vector<T> &data)
@@ -51,9 +49,31 @@ const LL LINF = 1001002003004005006ll;
 const int INF = 1001001001;
 
 //ここから書き始める
-int main(int argc, char const *argv[])
-{
-    cin.tie(0);
-    ios::sync_with_stdio(false);	
 
+string str;
+string target = "keyence";
+int main(){
+    cin>>str;
+    if(str == target){
+        puts("YES");
+        return 0;
+    }
+    int n = str.size();
+    for(int i=0;i<n;i++){
+        for(int j=i;j<n;j++){
+            //delete [i,j]
+            string S = "";
+            for(int k=0;k<n;k++){
+                if(i<=k && k<=j){
+                    continue;
+                }
+                else S.push_back(str[k]);
+            }
+            if(S == target){
+                puts("YES");
+                return 0;
+            }
+        }
+    }
+    puts("NO");
 }
